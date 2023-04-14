@@ -1,0 +1,295 @@
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #FFFFFF;
+
+  background-color: #242B33;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.8s ease;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: inherit;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #D2964C;
+
+  transition: all 0.8s ease;
+}
+
+button:hover {
+  color: #FFFFFF;
+}
+
+.container {
+  max-width: 1210px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.wrapper {
+  padding: 40px 0;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 30px;
+}
+
+/* header */
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 0;
+}
+
+.header-logo {
+  color: #D2964C;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.header-wrapper button {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.header-wrapper button:hover {
+  color: #FFFFFF;
+}
+
+/* homepage */
+input, textarea, select {
+  outline: none;
+  border: none;
+  border-radius: 4px;
+
+  padding: 12px;
+}
+
+.search-form {
+  margin: 30px 0;
+}
+
+.search-form input {
+  width: 100%;
+}
+
+nav {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+nav a {
+  padding: 10px 20px;
+  border: 1px solid #D2964C;
+  border-radius: 8px;
+
+  font-size: 14px;
+}
+
+nav a.active,
+nav a:hover {
+  background-color: #D2964C;
+}
+
+.products-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.products-item {
+  padding: 20px;
+  border: 1px solid #D2964C;
+  border-radius: 8px;
+}
+
+.products-item {
+  width: 100%;
+}
+
+.products-image .image {
+  width: 100%;
+  height: 200px;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  border-radius: 8px;
+}
+
+.info {
+  margin-top: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.price {
+  color: #D2964C;
+  font-weight: 600;
+}
+
+.btn {
+  transition: all 0.8s ease;
+  color: #D2964C;
+}
+
+.btn:hover {
+  color: #FFFFFF;
+}
+
+/* singlepage */
+.product-item {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.product-images {
+  min-width: 500px;
+}
+
+.product-image {
+  width: 100%;
+  height: 500px;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.product-info .name {
+  font-weight: 600;
+  color: #D2964C;
+  font-size: 20px;
+}
+
+/* modal */
+.overlay {
+  display: none;
+}
+
+.overlay.active {
+  position: fixed;
+  z-index: 100;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgb(0, 0, 0, 0.5);
+
+  width: 100%;
+  height: 100%;
+}
+
+.modal {
+  background-color: #FFFFFF;
+  padding: 30px;
+  border-radius: 8px;
+
+  width: 500px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+
+  color: #242B33;
+}
+
+.modal-content .title {
+  color: #D2964C;
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 14px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+
+  width: 300px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 6px;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 10px;
+
+  outline: none;
+  border: 1px solid #242B33;
+  border-radius: 4px;
+}
+
+textarea {
+  resize: none;
+}
+
+form button:hover {
+  color: #242B33;
+}
+
+.search-form {
+  width: 100%;
+}
