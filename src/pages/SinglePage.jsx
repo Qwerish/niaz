@@ -6,7 +6,7 @@ const SinglePage = () => {
     const [product, setProduct] = useState({});
 
     useEffect(() => {
-        fetch(`https://api.avavion.ru/api/products/${params.id}`)
+        fetch(`https://flowers.avavion.ru/api/products/${params.id}`)
             .then((r) => r.json())
             .then((data) => setProduct(data.data));
     }, []);
@@ -15,12 +15,13 @@ const SinglePage = () => {
 
     return (
         <section>
+            <div className="cont-two">
             <div className="container">
                 <div className="wrapper">
                     <div className="product-item" key={product.id}>
                         <div className="product-images">
                             <div className="product-image">
-                                <img src={product.image_url} alt="" />
+                                <img src={product.preview_image} alt="Фотография отсутствует" />
                             </div>
                         </div>
 
@@ -30,12 +31,13 @@ const SinglePage = () => {
 
                             <p>{product.short_text}</p>
                             <p>{product.text}</p>
-                            <p className="price">{Math.round(price)} ₽</p>
+                            <p className="price">{Math.round(price)} руб</p>
 
-                            <NavLink to={`/`}>Вернуться обратно</NavLink>
+                            <NavLink className="back" to={`/`}>Назад</NavLink>
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </section>
     )

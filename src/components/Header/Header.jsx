@@ -5,7 +5,7 @@ const ModalButton = () => {
     const {toggleModal} = useContext(ModalContext);
 
     return (
-        <button onClick={toggleModal}>Отправить заявку</button>
+        <button onClick={toggleModal}>Заявка</button>
     )
 }
 
@@ -14,7 +14,7 @@ const Header = () => {
         <header>
             <div className="container">
                 <div className="header-wrapper">
-                    <a href="/" className="header-logo">WeAreBuilding</a>
+                   
 
                     <ModalButton />
                 </div>

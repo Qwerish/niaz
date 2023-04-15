@@ -16,7 +16,7 @@ function Modal() {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch(`https://api.avavion.ru/api/products`)
+        fetch(`https://flowers.avavion.ru/api/products`)
             .then((r) => r.json())
             .then((data) => setProducts(data.data));
     }, []);
@@ -44,7 +44,7 @@ function Modal() {
     }
 
     const sendRequest = async (body) => {
-        const response = await fetch("https://api.avavion.ru/api/applications/create", {
+        const response = await fetch("https://flowers.avavion.ru/api/applications/create", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -84,23 +84,14 @@ function Modal() {
                             <input onChange={onChangeForm.bind(this)} value={form.first_name} type="text" placeholder="Имя" id="first_name" name="first_name" />
                         </div>
 
-                        <div className="form-field">
-                            <label htmlFor="last_name">Фамилия</label>
-                            <input onChange={onChangeForm.bind(this)} value={form.last_name} type="text" placeholder="Фамилия" id="last_name" name="last_name" />
-                        </div>
 
                         <div className="form-field">
-                            <label htmlFor="email">Email</label>
-                            <input onChange={onChangeForm.bind(this)} value={form.email} type="text" placeholder="Email" id="email" name="email" />
-                        </div>
-
-                        <div className="form-field">
-                            <label htmlFor="message">Message</label>
+                            <label htmlFor="message">Описание товара</label>
                             <textarea onChange={onChangeForm.bind(this)} value={form.message} name="message" id="message" cols="30" rows="10"></textarea>
                         </div>
 
                         <div className="form-field">
-                            <label htmlFor="service">Выберите услугу</label>
+                            <label htmlFor="service">Выберите цветы</label>
 
                             <select name="service_id" id="service" onChange={onChangeSelectForm.bind(this)}>
                                 {

@@ -5,7 +5,7 @@ const HomePage = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch(`https://api.avavion.ru/api/products`)
+        fetch(`https://flowers.avavion.ru/api/products`)
             .then((r) => r.json())
             .then((data) => setProducts(data.data));
     }, []);
@@ -37,7 +37,7 @@ const HomePage = () => {
     const [tags, setTags] = useState([]);
 
     const fetchTags = async () => {
-        const response = await fetch('https://api.avavion.ru/api/tags');
+        const response = await fetch(`https://flowers.avavion.ru/api/tags`);
         const data = await response.json();
 
         setTags(data.data);
@@ -47,7 +47,7 @@ const HomePage = () => {
         fetchTags();
     }, []);
 
-    if(tag.name !== undefined){
+    if (tag.name !== undefined) {
         searchProducts = products.filter((item) => item.tag === tag.name)
     }
 
@@ -55,54 +55,63 @@ const HomePage = () => {
         <section>
             <div className="container">
                 <div className="wrapper">
-                    <div className="section-header">
-                        <h2 className="title">Каталог</h2>
-
-                        <form>
-                            <select onChange={sortProducts.bind(this)}>
-                                <option value="NONE" disabled>Выбрать сортировку</option>
-                                <option value="ASC">от меньшего к большему</option>
-                                <option value="DESC">от большего к меньшему</option>
-                            </select>
-                        </form>
-                    </div>
 
                     <nav>
-                        <a href="/" className="active">Все</a>
+                        <a href="/" className="active">Выбор: </a>
                         {
                             tags.map((tag) => {
                                 return (
-                                    <NavLink to={`/tags/${tag.name}`} key={tag.id}>{tag.name}</NavLink>
+                                    <NavLink to={`/tags/${tag.tag}`} key={tag.id}>{tag.tag}</NavLink>
                                 )
                             })
                         }
                     </nav>
 
-                    <form className="search-form">
-                        <input type="text" placeholder="Поиск" value={query} onChange={(e) => onChangeQuery(e)} />
-                    </form>
+                    <div className="rwerw">
+                        <div className="cent">
+                            <form className="search-form">
+                                <input type="text" placeholder="Поиск" value={query} onChange={(e) => onChangeQuery(e)} />
+                            </form>
 
-                    <div className="products-list">
-                        {
-                            searchProducts.map((product) => {
-                                const price = product.price - (product.price / 100 * product.discount);
-                                return (
-                                    <div className="products-item" key={product.id}>
-                                        <div className="products-image">
-                                            <div className="image">
-                                                <img src={product.image_url} alt="" />
+                            <div className="section-header">
+
+
+                                <form>
+                                    <select onChange={sortProducts.bind(this)}>
+                                        <option value="NONE">Выбрать сортировку</option>
+                                        <option value="DESC">По убыванию цены</option>
+                                        <option value="ASC">По возрастанию цены</option>
+                                        
+                                    </select>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div className="qwerrrr">
+                        <div className="products-list">
+                            {
+                                searchProducts.map((product) => {
+                                    const price = product.price - (product.price / 100 * product.discount);
+                                    return (
+                                        <div className="products-item" key={product.id}>
+                                            <div className="products-image">
+                                                <div className="image">
+                                                    <img src={product.preview_image} alt="" />
+                                                </div>
+                                            </div>
+
+                                            <div className="info">
+                                                <h3 className="name">Название: {product.name}</h3>
+                                                <p className="price">Цена: {Math.round(price)} руб</p>
+                                                <NavLink to={`/products/${product.id}`} className="btn">Подробная инфорация</NavLink>
                                             </div>
                                         </div>
-
-                                        <div className="info">
-                                            <h3 className="name">{product.name}</h3>
-                                            <p className="price">{Math.round(price)} ₽</p>
-                                            <NavLink to={`/products/${product.id}`} className="btn">Перейти</NavLink>
-                                        </div>
-                                    </div>
-                                )
-                            })
-                        }
+                                    )
+                                })
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
